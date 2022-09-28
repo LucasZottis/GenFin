@@ -1,8 +1,8 @@
 ﻿namespace GenFin.Core.Infra.Repositories
 {
-    public class PaymentMethodRepository : Repository<PaymentMethod, GenFinContexto>, IPaymentMethodRepository
+    public class PaymentMethodRepository : Repository<PaymentMethod, GenFinContext>, IPaymentMethodRepository
     {
-        public PaymentMethodRepository( GenFinContexto context ) : base( context )
+        public PaymentMethodRepository( GenFinContext context ) : base( context )
         {
         }
     }

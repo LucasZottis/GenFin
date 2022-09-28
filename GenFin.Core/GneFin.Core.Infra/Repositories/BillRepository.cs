@@ -1,8 +1,8 @@
 ﻿namespace GenFin.Core.Infra.Repositories
 {
-    public class BillRepository : Repository<Bill, GenFinContexto>, IBillRepository
+    public class BillRepository : Repository<Bill, GenFinContext>, IBillRepository
     {
-        public BillRepository( GenFinContexto context ) : base( context )
+        public BillRepository( GenFinContext context ) : base( context )
         {
         }
     }

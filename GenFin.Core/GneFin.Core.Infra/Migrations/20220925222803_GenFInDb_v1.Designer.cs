@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GenFin.Core.Infra.Migrations
 {
-    [DbContext(typeof(GenFinContexto))]
+    [DbContext(typeof(GenFinContext))]
     [Migration("20220925222803_GenFInDb_v1")]
     partial class GenFInDb_v1
     {

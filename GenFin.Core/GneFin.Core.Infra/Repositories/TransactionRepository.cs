@@ -1,8 +1,8 @@
 ﻿namespace GenFin.Core.Infra.Repositories
 {
-    public class TransactionRepository : Repository<Transaction, GenFinContexto>, ITransactionRepository
+    public class TransactionRepository : Repository<Transaction, GenFinContext>, ITransactionRepository
     {
-        public TransactionRepository( GenFinContexto context ) : base( context )
+        public TransactionRepository( GenFinContext context ) : base( context )
         {
         }
     }

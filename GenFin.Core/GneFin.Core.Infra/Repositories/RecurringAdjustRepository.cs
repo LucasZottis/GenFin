@@ -1,8 +1,8 @@
 ﻿namespace GenFin.Core.Infra.Repositories
 {
-    public class RecurringAdjustRepository : Repository<RecurringAdjust, GenFinContexto>, IRecurringAdjustRepository
+    public class RecurringAdjustRepository : Repository<RecurringAdjust, GenFinContext>, IRecurringAdjustRepository
     {
-        public RecurringAdjustRepository( GenFinContexto context ) : base( context )
+        public RecurringAdjustRepository( GenFinContext context ) : base( context )
         {
         }
     }

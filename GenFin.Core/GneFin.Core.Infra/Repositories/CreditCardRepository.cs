@@ -2,9 +2,9 @@
 
 namespace GenFin.Core.Infra.Repositories
 {
-    public class CreditCardRepository : Repository<CreditCard, GenFinContexto>, ICreditCardRepository
+    public class CreditCardRepository : Repository<CreditCard, GenFinContext>, ICreditCardRepository
     {
-        public CreditCardRepository( GenFinContexto context ) : base( context )
+        public CreditCardRepository( GenFinContext context ) : base( context )
         {
         }
     }

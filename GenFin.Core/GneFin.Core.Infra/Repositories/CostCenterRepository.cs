@@ -2,9 +2,9 @@
 
 namespace GenFin.Core.Infra.Repositories
 {
-    public class CostCenterRepository : Repository<CostCenter, GenFinContexto>, ICostCenterRepository
+    public class CostCenterRepository : Repository<CostCenter, GenFinContext>, ICostCenterRepository
     {
-        public CostCenterRepository( GenFinContexto context ) : base( context )
+        public CostCenterRepository( GenFinContext context ) : base( context )
         {
         }
     }

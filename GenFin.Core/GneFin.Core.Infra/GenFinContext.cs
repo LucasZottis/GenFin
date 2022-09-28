@@ -2,7 +2,7 @@
 
 namespace GenFin.Core.Infra
 {
-    public class GenFinContexto : DbContext
+    public class GenFinContext : DbContext
     {
         internal DbSet<PaymentMethod> PaymentMethods { get; set; }
         internal DbSet<CreditCard> CreditCards { get; set; }
@@ -10,7 +10,7 @@ namespace GenFin.Core.Infra
         internal DbSet<Category> Categories { get; set; }
         internal DbSet<CostCenter> CostCenters { get; set; }
 
-        public GenFinContexto( DbContextOptions options ) : base( options )
+        public GenFinContext( DbContextOptions options ) : base( options )
         {
         }
 

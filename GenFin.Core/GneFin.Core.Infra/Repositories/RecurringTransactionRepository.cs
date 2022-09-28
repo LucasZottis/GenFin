@@ -1,8 +1,8 @@
 ﻿namespace GenFin.Core.Infra.Repositories
 {
-    public class RecurringTransactionRepository : Repository<RecurringTransaction, GenFinContexto>, IRecurringTransactionRepository
+    public class RecurringTransactionRepository : Repository<RecurringTransaction, GenFinContext>, IRecurringTransactionRepository
     {
-        public RecurringTransactionRepository( GenFinContexto context ) : base( context )
+        public RecurringTransactionRepository( GenFinContext context ) : base( context )
         {
         }
     }

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GenFin.Core.Infra.Migrations
 {
-    [DbContext(typeof(GenFinContexto))]
+    [DbContext(typeof(GenFinContext))]
     partial class GenFinContextoModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
