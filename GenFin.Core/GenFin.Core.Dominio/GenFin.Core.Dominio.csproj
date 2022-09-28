@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BibliotecaPublica.Core" Version="1.2.1" />
+    <PackageReference Include="BibliotecaPublica.Extensoes" Version="2.0.1" />
+    <PackageReference Include="BibliotecaPublica.NegocioPack" Version="1.0.1" />
+    <PackageReference Include="BibliotecaPublica.RepositorioPack" Version="2.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
+  </ItemGroup>
+
+</Project>
