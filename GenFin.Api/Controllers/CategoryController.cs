@@ -54,7 +54,7 @@ namespace GenFin.Api.Controllers
         }
 
         [HttpPost( "DeleteCategory" )]
-        public ActionResult<SimplifiedCategory> DeleteCategory( int categoryId )
+        public ActionResult DeleteCategory( int categoryId )
         {
             try
             {
