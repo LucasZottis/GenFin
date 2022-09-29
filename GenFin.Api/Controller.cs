@@ -1,4 +1,5 @@
-﻿using BibliotecaPublica.NegocioPack.Interfaces;
+﻿using BibliotecaPublica.Extensoes.Extensoes;
+using BibliotecaPublica.NegocioPack.Interfaces;
 
 namespace GenFin.Api
 {
@@ -31,5 +32,18 @@ namespace GenFin.Api
 
             return Ok( retorno );
         }
+
+        protected ActionResult ValidateReturn( Action action, string completionMessage )
+        {
+            var notifications = _negocio.RetornarNotificacoes();
+
+            if ( notifications.TemConteudo() )
+                return ReturnInvalidations( _negocio.RetornarNotificacoes() );
+            "Concluded"
+            return Ok( completionMessage );
+        }
+
+        protected ActionResult ValidateReturn( Action action )
+            => ValidateReturn( action, "Concluded" );
     }
 }

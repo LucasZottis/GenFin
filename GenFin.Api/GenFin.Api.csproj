@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\GenFin.Core\GenFin.Core.Aplicacao\GenFin.Core.Aplicacao.csproj" />
   </ItemGroup>
 

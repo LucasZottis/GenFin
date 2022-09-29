@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\GenFin.Core.Client\GenFin.Core.Client.csproj" />
     <ProjectReference Include="..\GneFin.Core.Infra\GenFin.Core.Infra.csproj" />
   </ItemGroup>
 
