@@ -23,20 +23,21 @@ namespace GenFin.Core.Infra.ModelMappers
                 .HasForeignKey( b => b.IdBill );
 
             Property( b => b.PurchaseDate )
+                .HasColumnType( SqlColumnTypes.Date )
                 .IsRequired();
 
             Property( b => b.Value )
-                .HasColumnType( "money" )
+                .HasColumnType( SqlColumnTypes.Money )
                 .IsRequired();
 
             Property( b => b.Description )
-                .HasColumnType( "varchar" )
+                .HasColumnType( SqlColumnTypes.ShortText )
                 .HasMaxLength( 50 )
                 .IsRequired();
 
             Property( b => b.Establishment )
-                .HasColumnType( "varchar" )
-                .HasMaxLength( 30 )
+                .HasColumnType( SqlColumnTypes.ShortText )
+                .HasMaxLength( 50 )
                 .IsRequired();
 
             Property( b => b.Installment )

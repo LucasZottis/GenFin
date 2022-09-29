@@ -2,9 +2,9 @@
 {
     public class Transaction : Entity
     {
+        public int IdPaymentSource { get; set; }
         public int IdCostCenter { get; set; }
         public int IdCategory { get; set; }
-        public int IdPaymentSource { get; set; }
         public decimal Value { get; set; }
         public PaymentStatus PaymentStatus { get; set; }
         public TransactionKind Kind { get; set; }

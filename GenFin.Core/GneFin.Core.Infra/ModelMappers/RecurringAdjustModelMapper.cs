@@ -8,14 +8,16 @@
 
         public override void Map()
         {
-            Property( p => p.DateStart )
-                .IsRequired();
-
             EntityTypeBuilder.HasOne( r => r.RecurringTransaction )
                 .WithMany( r => r.Adjusts )
                 .HasForeignKey( r => r.IdRecurringTransaction );
 
-            Property(p => p.Percent)
+            Property( p => p.DateStart )
+                .HasColumnType( SqlColumnTypes.Date )
+                .IsRequired();
+
+            Property( p => p.Percent )
+                .HasColumnType( SqlColumnTypes.LongPercentage )
                 .IsRequired();
         }
     }

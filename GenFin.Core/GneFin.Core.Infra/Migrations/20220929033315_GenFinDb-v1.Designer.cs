@@ -4,6 +4,7 @@ using GenFin.Core.Infra;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GenFin.Core.Infra.Migrations
 {
     [DbContext(typeof(GenFinContext))]
-    partial class GenFinContextoModelSnapshot : ModelSnapshot
+    [Migration("20220929033315_GenFinDb-v1")]
+    partial class GenFinDbv1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,7 +34,7 @@ namespace GenFin.Core.Infra.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<DateTime>("BillDueDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("date");
 
                     b.Property<DateTime?>("DeactivationDate")
                         .HasColumnType("datetime2")
@@ -51,9 +53,6 @@ namespace GenFin.Core.Infra.Migrations
                     b.Property<decimal>("PaidValue")
                         .HasColumnType("money");
 
-                    b.Property<int>("PaymentSourceId")
-                        .HasColumnType("int");
-
                     b.Property<byte>("PaymentStatus")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("tinyint")
@@ -67,7 +66,7 @@ namespace GenFin.Core.Infra.Migrations
 
                     b.HasIndex("IdCreditCard");
 
-                    b.HasIndex("PaymentSourceId");
+                    b.HasIndex("IdPaymentSource");
 
                     b.ToTable("Bill", (string)null);
                 });
@@ -92,8 +91,8 @@ namespace GenFin.Core.Infra.Migrations
 
                     b.Property<string>("Establishment")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("varchar(30)");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<int>("IdBill")
                         .HasColumnType("int");
@@ -117,7 +116,7 @@ namespace GenFin.Core.Infra.Migrations
                         .HasColumnName("LastUpdateDate");
 
                     b.Property<DateTime>("PurchaseDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("date");
 
                     b.Property<DateTime>("RegistrationDate")
                         .HasColumnType("datetime2")
@@ -159,8 +158,8 @@ namespace GenFin.Core.Infra.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("varchar(20)");
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
 
                     b.Property<DateTime>("RegistrationDate")
                         .HasColumnType("datetime2")
@@ -193,8 +192,8 @@ namespace GenFin.Core.Infra.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("varchar(20)");
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
 
                     b.Property<DateTime>("RegistrationDate")
                         .HasColumnType("datetime2")
@@ -246,7 +245,7 @@ namespace GenFin.Core.Infra.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<DateTime>("DateStart")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("date");
 
                     b.Property<DateTime?>("DeactivationDate")
                         .HasColumnType("datetime2")
@@ -260,7 +259,7 @@ namespace GenFin.Core.Infra.Migrations
                         .HasColumnName("LastUpdateDate");
 
                     b.Property<decimal>("Percent")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal (18,4)");
 
                     b.Property<DateTime>("RegistrationDate")
                         .HasColumnType("datetime2")
@@ -282,10 +281,8 @@ namespace GenFin.Core.Infra.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("DateStart")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("varchar(150)");
+                    b.Property<DateTime>("DateStart")
+                        .HasColumnType("date");
 
                     b.Property<DateTime?>("DeactivationDate")
                         .HasColumnType("datetime2")
@@ -293,7 +290,13 @@ namespace GenFin.Core.Infra.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(150)
+                        .HasColumnType("varchar(150)");
+
+                    b.Property<string>("Establishment")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<int>("Frequency")
                         .HasColumnType("int");
@@ -317,6 +320,9 @@ namespace GenFin.Core.Infra.Migrations
                     b.Property<DateTime>("RegistrationDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("RegistrationColumn");
+
+                    b.Property<byte>("Status")
+                        .HasColumnType("tinyint");
 
                     b.Property<decimal>("Value")
                         .HasColumnType("money");
@@ -438,7 +444,7 @@ namespace GenFin.Core.Infra.Migrations
 
                     b.HasOne("GenFin.Core.Dominio.Entities.PaymentSource", "PaymentSource")
                         .WithMany("PaidBills")
-                        .HasForeignKey("PaymentSourceId")
+                        .HasForeignKey("IdPaymentSource")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

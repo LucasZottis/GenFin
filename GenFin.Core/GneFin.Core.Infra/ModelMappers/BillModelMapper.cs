@@ -1,6 +1,4 @@
-﻿using GenFin.Core.Dominio.Enums;
-
-namespace GenFin.Core.Infra.ModelMappers
+﻿namespace GenFin.Core.Infra.ModelMappers
 {
     internal class BillModelMapper : EntityModelMapper<Bill>
     {
@@ -10,20 +8,25 @@ namespace GenFin.Core.Infra.ModelMappers
 
         public override void Map()
         {
+            EntityTypeBuilder.HasOne( b => b.CreditCard )
+                .WithMany( c => c.Bills )
+                .HasForeignKey( b => b.IdCreditCard );
+
+            EntityTypeBuilder.HasOne( b => b.PaymentSource )
+                .WithMany( c => c.PaidBills )
+                .HasForeignKey( b => b.IdPaymentSource );
+
             Property( b => b.BillDueDate )
+                .HasColumnType( SqlColumnTypes.Date )
                 .IsRequired();
 
             Property( b => b.PaidValue )
-                .HasColumnType( "money" )
+                .HasColumnType( SqlColumnTypes.Money )
                 .IsRequired();
 
             Property( b => b.PaymentStatus )
                 .HasDefaultValue( PaymentStatus.Payable )
                 .IsRequired();
-
-            EntityTypeBuilder.HasOne( b => b.CreditCard )
-                .WithMany( c => c.Bills )
-                .HasForeignKey( b => b.IdCreditCard );
         }
     }
 }

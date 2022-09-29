@@ -21,7 +21,7 @@
                 .HasForeignKey( p => p.IdCategory );
 
             Property( p => p.Value )
-                .HasColumnType( "money" )
+                .HasColumnType( SqlColumnTypes.Money )
                 .IsRequired();
 
             Property( p => p.PaymentStatus )
@@ -31,12 +31,12 @@
                 .IsRequired();
 
             Property( p => p.Description )
-                .HasColumnType( "varchar" )
+                .HasColumnType( SqlColumnTypes.ShortText )
                 .HasMaxLength( 150 )
                 .IsRequired();
 
             Property( p => p.Establishment )
-                .HasColumnType( "varchar" )
+                .HasColumnType( SqlColumnTypes.ShortText )
                 .HasMaxLength( 50 )
                 .IsRequired();
 

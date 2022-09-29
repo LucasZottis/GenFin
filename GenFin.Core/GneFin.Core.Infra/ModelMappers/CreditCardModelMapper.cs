@@ -18,7 +18,7 @@
                 .IsRequired();
 
             Property( e => e.CreditLimit )
-                .HasColumnType( "money" )
+                .HasColumnType( SqlColumnTypes.Money )
                 .IsRequired();
         }
     }

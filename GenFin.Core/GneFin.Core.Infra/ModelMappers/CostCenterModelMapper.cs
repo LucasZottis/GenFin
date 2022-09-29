@@ -9,8 +9,8 @@
         public override void Map()
         {
             Property( c => c.Name )
-                .HasColumnType( "varchar" )
-                .HasMaxLength( 20 )
+                .HasColumnType( SqlColumnTypes.ShortText )
+                .HasMaxLength( 30 )
                 .IsRequired();
         }
     }

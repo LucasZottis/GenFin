@@ -21,18 +21,27 @@
                 .HasForeignKey( p => p.IdCategory );
 
             Property( p => p.DateStart )
+                .HasColumnType( SqlColumnTypes.Date )
                 .IsRequired();
 
             Property( p => p.Value )
-                .HasColumnType( "money" )
+                .HasColumnType( SqlColumnTypes.Money )
+                .IsRequired();
+
+            Property( p => p.Status )
                 .IsRequired();
 
             Property( p => p.Kind )
                 .IsRequired();
 
-            Property( p => p.DateStart )
-                .HasColumnType( "varchar" )
+            Property( p => p.Description )
+                .HasColumnType( SqlColumnTypes.ShortText )
                 .HasMaxLength( 150 )
+                .IsRequired();
+
+            Property( p => p.Establishment )
+                .HasColumnType( SqlColumnTypes.ShortText )
+                .HasMaxLength( 50 )
                 .IsRequired();
 
             Property( p => p.Frequency )
