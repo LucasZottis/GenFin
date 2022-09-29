@@ -39,7 +39,7 @@ namespace GenFin.Api
 
             if ( notifications.TemConteudo() )
                 return ReturnInvalidations( _negocio.RetornarNotificacoes() );
-            "Concluded"
+
             return Ok( completionMessage );
         }
 
