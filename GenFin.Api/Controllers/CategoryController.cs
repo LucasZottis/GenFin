@@ -27,7 +27,7 @@ namespace GenFin.Api.Controllers
             }
         }
 
-        [HttpPost( "UpdateCategory" )]
+        [HttpPut( "UpdateCategory" )]
         public ActionResult<SimplifiedCategory> UpdateCategory( UpdatedCategory category )
         {
             try
@@ -40,7 +40,7 @@ namespace GenFin.Api.Controllers
             }
         }
 
-        [HttpPost( "GetAllCategories" )]
+        [HttpGet( "GetAllCategories" )]
         public ActionResult<IEnumerable<SimplifiedCategory>> GetAllCategories()
         {
             try
@@ -53,12 +53,12 @@ namespace GenFin.Api.Controllers
             }
         }
 
-        [HttpPost( "DeleteCategory" )]
-        public ActionResult DeleteCategory( int categoryId )
+        [HttpPut( "DisableCategory" )]
+        public ActionResult DisableCategory( int categoryId )
         {
             try
             {
-                return ValidateReturn( () => _categoryBusinessService.DeleteCategory( categoryId ) );
+                return ValidateReturn( () => _categoryBusinessService.DisableCategory( categoryId ) );
             }
             catch ( Exception ex )
             {

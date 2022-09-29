@@ -6,11 +6,11 @@ namespace GenFin.Core.Aplicacao.Interfaces
     {
         SimplifiedCostCenter? CreateNewCostCenter( NewCostCenter costCenter );
         SimplifiedCostCenter? UpdateCostCenter( UpdatedCostCenter costCenter );
-        void DeleteCostCenter( int costCenterId );
+        void DisableCostCenter( int costCenterId );
 
         IEnumerable<SimplifiedCostCenter> GetAllCostCenters();
 
-        internal bool ValidateNewCostCenter( NewCostCenter costCenter );
-        internal bool ValidateUpdatedCostCenter( UpdatedCostCenter costCenter );
+        internal bool IsNewCostCenterValid( NewCostCenter costCenter );
+        internal bool IsUpdatedCostCenterValid( UpdatedCostCenter costCenter );
     }
 }

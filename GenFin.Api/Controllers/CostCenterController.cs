@@ -26,7 +26,7 @@ namespace GenFin.Api.Controllers
             }
         }
 
-        [HttpPost( "UpdateCostCenter" )]
+        [HttpPut( "UpdateCostCenter" )]
         public ActionResult<SimplifiedCostCenter> UpdateCostCenter( UpdatedCostCenter costCenter )
         {
             try
@@ -39,7 +39,7 @@ namespace GenFin.Api.Controllers
             }
         }
 
-        [HttpPost( "GetAllCostCenters" )]
+        [HttpGet( "GetAllCostCenters" )]
         public ActionResult<IEnumerable<SimplifiedCostCenter>> GetAllCostCenters()
         {
             try
@@ -52,12 +52,12 @@ namespace GenFin.Api.Controllers
             }
         }
 
-        [HttpPost( "DeleteCostCenter" )]
-        public ActionResult DeleteCostCenter( int categoryId )
+        [HttpPut( "DisableCostCenter" )]
+        public ActionResult DisableCostCenter( int categoryId )
         {
             try
             {
-                return ValidateReturn( () => _costCenterBusinessService.DeleteCostCenter( categoryId ) );
+                return ValidateReturn( () => _costCenterBusinessService.DisableCostCenter( categoryId ) );
             }
             catch ( Exception ex )
             {

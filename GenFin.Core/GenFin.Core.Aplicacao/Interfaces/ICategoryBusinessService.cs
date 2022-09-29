@@ -6,11 +6,11 @@ namespace GenFin.Core.Aplicacao.Interfaces
     {
         SimplifiedCategory? CreateNewCategory( NewCategory category );
         SimplifiedCategory? UpdateCategory( UpdatedCategory category );
-        void DeleteCategory( int categoryId );
+        void DisableCategory( int categoryId );
 
         IEnumerable<SimplifiedCategory> GetAllCategories();
 
-        internal bool ValidateNewCategory( NewCategory category );
-        internal bool ValidateUpdatedCategory( NewCategory category );
+        internal bool IsNewCategoryValid( NewCategory category );
+        internal bool IsUpdatedCategoryValid( NewCategory category );
     }
 }
