@@ -8,7 +8,7 @@ namespace GenFin.Api
         {
             return new WebApplicationOptions()
             {
-                ApplicationName = "GenFinApi",
+                ApplicationName = "GenFin.Api",
                 ContentRootPath = AppContext.BaseDirectory,
                 Args = args
             };

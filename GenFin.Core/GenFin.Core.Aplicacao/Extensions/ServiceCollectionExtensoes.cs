@@ -1,4 +1,4 @@
-﻿using GenFin.Core.Dominio;
+﻿using BibliotecaPublica.Utils.Utils;
 using GenFin.Core.Infra;
 using GenFin.Core.Infra.Builders;
 using GenFin.Core.Infra.Interfaces;
@@ -44,7 +44,7 @@ namespace GenFin.Core.Aplicacao.Extensions
 
         public static IServiceCollection InjectContext( this IServiceCollection services )
             => services.AddDbContext<GenFinContext>( opcoes
-                => opcoes.UseSqlServer( GenFinConfig.ConnectionString ), ServiceLifetime.Scoped );
+                => opcoes.UseSqlServer( AppSettings.GetConnectionString( "GenFinDb" ) ), ServiceLifetime.Scoped );
 
         public static IServiceCollection InjectScopedServices( this IServiceCollection services )
         {

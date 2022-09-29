@@ -9,6 +9,11 @@
   <ItemGroup>
     <PackageReference Include="BibliotecaPublica.NegocioPack" Version="1.0.1" />
     <PackageReference Include="BibliotecaPublica.Utils" Version="1.4.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="6.0.0" />
     <PackageReference Include="NLog" Version="5.0.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
